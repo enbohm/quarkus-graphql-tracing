@@ -12,10 +12,9 @@ You can run your application in dev mode that enables live coding using:
 ```
 
 Open a browser at http://127.0.0.1:8080/graphql-ui/ and execute the GraphQL dummy query. This works 
-as expected, and the request traced (logged) in the console. However, running the test case 
-(GraphQLResourceTest.java) fails since  the OpenTraingDecorator-class expect that the tracing is 
-enabled and hence a NPE is thrown (row 66 in OpenTraingDecorator.java 
-stmt tracer.scopeManager().active().close()) see stacktrace below.
+as expected, and the request is traced (logged) in the console. However, running the test case 
+GraphQLResourceTest.java, where tracing is disabled, fails. This is due to that the OpenTraingDecorator-class expect that the tracing is 
+enabled and hence a NPE is thrown (OpenTraingDecorator#execute(executionContext) -> tracer.scopeManager().active().close()) see stacktrace below.
 
 ```
 2020-08-03 14:45:31,968 ERROR [io.sma.graphql] (vert.x-worker-thread-0) SRGQL012000: Data Fetching Error: java.lang.NullPointerException
