@@ -6,7 +6,7 @@ to disable tracing for a specific runtime profile).
 
 ## Running the application in dev mode
 
-You can run your application in dev mode that enables live coding using:
+You can run this example application in dev mode using:
 ```
 ./mvnw quarkus:dev
 ```
